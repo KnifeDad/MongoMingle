@@ -3,11 +3,16 @@
 ## 🎯 Description
 Welcome to MongoMingle, where thoughts become connections and friends become family! 🚀 This social network API is your gateway to building meaningful digital relationships. Built with Express.js for routing, MongoDB for data storage, and Mongoose ODM for elegant data modeling, MongoMingle brings your social network dreams to life! ✨
 
+## 🎥 Live Demo
+![MongoMingle Screenshot](assets/MongoMingle.png)
+
+### Video Walkthrough
+[Video Link Here]
+
 ## 📚 Table of Contents
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [API Routes](#-api-routes)
-- [Video Walkthrough](#-video-walkthrough)
 - [License](#-license)
 
 ## 🛠️ Installation
@@ -47,9 +52,6 @@ npm start
 - DELETE `/api/thoughts/:thoughtId` - Delete a thought
 - POST `/api/thoughts/:thoughtId/reactions` - Add a reaction to a thought
 - DELETE `/api/thoughts/:thoughtId/reactions/:reactionId` - Remove a reaction from a thought
-
-## 🎥 Video Walkthrough
-[Video Link Here]
 
 ## 🛠️ Technologies Used
 - Node.js

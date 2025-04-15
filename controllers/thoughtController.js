@@ -1,5 +1,7 @@
+// Import required packages
 const { Thought, User } = require('../models');
 
+// Thought Controller Functions
 const thoughtController = {
   // Get all thoughts
   getAllThoughts(req, res) {
@@ -10,7 +12,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Get single thought
+  // Get single thought by ID
   getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
@@ -22,7 +24,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Create thought
+  // Create new thought and associate with user
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
@@ -40,7 +42,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Update thought
+  // Update thought by ID
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -55,7 +57,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Delete thought
+  // Delete thought and remove from user's thoughts array
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
@@ -75,7 +77,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Add reaction
+  // Add reaction to thought
   addReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -90,7 +92,7 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Remove reaction
+  // Remove reaction from thought
   removeReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },

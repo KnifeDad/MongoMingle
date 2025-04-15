@@ -1,5 +1,7 @@
+// Import required packages
 const { User, Thought } = require('../models');
 
+// User Controller Functions
 const userController = {
   // Get all users
   getAllUsers(req, res) {
@@ -9,7 +11,7 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Get single user
+  // Get single user by ID
   getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
@@ -23,14 +25,14 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Create user
+  // Create new user
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
 
-  // Update user
+  // Update user by ID
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -45,7 +47,7 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Delete user
+  // Delete user and associated thoughts
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
@@ -57,7 +59,7 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Add friend
+  // Add friend to user's friend list
   addFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -72,7 +74,7 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // Remove friend
+  // Remove friend from user's friend list
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
